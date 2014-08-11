@@ -20,7 +20,6 @@
 
 package org.sonar.plugins.groovy;
 
-import com.google.common.collect.ImmutableList;
 import org.sonar.api.Properties;
 import org.sonar.api.Property;
 import org.sonar.api.PropertyType;
@@ -33,7 +32,10 @@ import org.sonar.plugins.groovy.foundation.Groovy;
 import org.sonar.plugins.groovy.foundation.GroovyColorizerFormat;
 import org.sonar.plugins.groovy.foundation.GroovyCpdMapping;
 import org.sonar.plugins.groovy.foundation.GroovySourceImporter;
+import org.sonar.plugins.groovy.surefire.GroovySurefireParser;
+import org.sonar.plugins.groovy.surefire.GroovySurefireSensor;
 
+import com.google.common.collect.ImmutableList;
 import java.util.List;
 
 @Properties({
@@ -84,7 +86,9 @@ public class GroovyPlugin extends SonarPlugin {
       GroovyCpdMapping.class,
       // Main sensor
       GroovySensor.class,
-
+      // Surefire
+      GroovySurefireParser.class,
+      GroovySurefireSensor.class,
       // Cobertura
       CoberturaSensor.class
       );
